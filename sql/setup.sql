@@ -6,9 +6,9 @@ drop table if exists stuff;
 create table stuff (
     id bigint not null,
     name varchar not null,
-    dontGet varchar not null
+    dontget varchar not null
 );
 
-insert into stuff (id, name, dontGet) values
+insert into stuff (id, name, dontget) values
 ('1', 'mouse', 'do not get'),
 ('2', 'keyboard', 'dont do it')
