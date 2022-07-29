@@ -3,26 +3,27 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('backend-express-template routes', () => {
+
+
+describe('tests', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('/stuff should list some stuff', async () => {
-    const resp = await request(app).get('/cats');
-    expect(resp.body.length).toEqual(8);
+  it('gets list of cats', async () => {
+    const resp = await request(app).get('/stuff');
+    expect(resp.body.length).toEqual(2);
     expect(resp.body[0]).toEqual({
       id: expect.any(String),
       name: expect.any(String),
-    })
-    expect(res.body).toEqual(expected);
+    });
   });
-  it('get /stuff/2 shows thing details', async () => {
-    const resp = await request(app).get('/cats/2');
+  it('get /stuff/2 shows cat id stuff', async () => {
+    const resp = await request(app).get('/stuff/2');
     console.log(resp.body);
     expect(resp.body).toEqual({
-      id: '2',
-      name: 'thing 2',
-      dontGet: 'dont get this'
+      id:'2',
+      name:'keyboard',
+      dontGet:'dont do it'
     });
   });
   afterAll(() => {
