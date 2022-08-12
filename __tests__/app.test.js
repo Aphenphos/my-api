@@ -9,16 +9,16 @@ describe('tests', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('gets list of cats', async () => {
-    const resp = await request(app).get('/stuff');
+  it('gets list of things', async () => {
+    const resp = await request(app).get('/thing');
     expect(resp.body.length).toEqual(2);
     expect(resp.body[0]).toEqual({
       id: expect.any(String),
       name: expect.any(String),
     });
   });
-  it('get /stuff/2 shows cat id stuff', async () => {
-    const resp = await request(app).get('/stuff/2');
+  it('get /thing/2 shows cat id thing', async () => {
+    const resp = await request(app).get('/thing/2');
     console.log(resp.body);
     expect(resp.body).toEqual({
       id:'2',
